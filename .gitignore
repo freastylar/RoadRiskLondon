@@ -1,0 +1,57 @@
+# Python / virtual environments
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+*.pem
+*.key
+*.crt
+*.p12
+
+# Generated data and large source downloads
+data/raw/*
+data/interim/*
+data/processed/*
+data/app/*
+*.csv
+*.tsv
+*.xlsx
+*.xls
+*.parquet
+*.feather
+
+# Generated model artifacts and reports
+models/registry/*
+models/reports/*
+*.joblib
+*.pkl
+*.pickle
+
+# Keep empty directory placeholders
+!data/raw/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+!data/app/.gitkeep
+!models/registry/.gitkeep
+!models/reports/.gitkeep
