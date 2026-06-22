@@ -1,0 +1,119 @@
+{
+    "0": {
+        "dynamic_title": "Profile 0: Single carriageway (20 mph) under Daylight",
+        "total_incidents": 24542,
+        "ksi_ratio": 16.547143672072366,
+        "modes": {
+            "road_type": "Single carriageway",
+            "speed_limit": "20 mph",
+            "light_conditions": "Daylight",
+            "weather_conditions": "Fine, no high winds",
+            "junction_detail": "T or staggered junction",
+            "urban_or_rural_area": "Urban"
+        }
+    },
+    "1": {
+        "dynamic_title": "Profile 1: Single carriageway (20 mph) under Daylight",
+        "total_incidents": 10285,
+        "ksi_ratio": 18.288770053475936,
+        "modes": {
+            "road_type": "Single carriageway",
+            "speed_limit": "20 mph",
+            "light_conditions": "Daylight",
+            "weather_conditions": "Fine, no high winds",
+            "junction_detail": "Not at or near junction",
+            "urban_or_rural_area": "Urban"
+        }
+    },
+    "2": {
+        "dynamic_title": "Profile 2: Single carriageway (30 mph) under Darkness - lights lit",
+        "total_incidents": 6036,
+        "ksi_ratio": 17.09741550695825,
+        "modes": {
+            "road_type": "Single carriageway",
+            "speed_limit": "30 mph",
+            "light_conditions": "Darkness - lights lit",
+            "weather_conditions": "Fine, no high winds",
+            "junction_detail": "Not at or near junction",
+            "urban_or_rural_area": "Urban"
+        }
+    },
+    "3": {
+        "dynamic_title": "Profile 3: Single carriageway (30 mph) under Daylight",
+        "total_incidents": 14649,
+        "ksi_ratio": 15.64611918902314,
+        "modes": {
+            "road_type": "Single carriageway",
+            "speed_limit": "30 mph",
+            "light_conditions": "Daylight",
+            "weather_conditions": "Fine, no high winds",
+            "junction_detail": "Not at or near junction",
+            "urban_or_rural_area": "Urban"
+        }
+    },
+    "4": {
+        "dynamic_title": "Profile 4: Single carriageway (20 mph) under Daylight",
+        "total_incidents": 5650,
+        "ksi_ratio": 17.646017699115042,
+        "modes": {
+            "road_type": "Single carriageway",
+            "speed_limit": "20 mph",
+            "light_conditions": "Daylight",
+            "weather_conditions": "Fine, no high winds",
+            "junction_detail": "Crossroads",
+            "urban_or_rural_area": "Urban"
+        }
+    },
+    "5": {
+        "dynamic_title": "Profile 5: Dual carriageway (30 mph) under Daylight",
+        "total_incidents": 4426,
+        "ksi_ratio": 17.171260732037958,
+        "modes": {
+            "road_type": "Dual carriageway",
+            "speed_limit": "30 mph",
+            "light_conditions": "Daylight",
+            "weather_conditions": "Fine, no high winds",
+            "junction_detail": "T or staggered junction",
+            "urban_or_rural_area": "Urban"
+        }
+    },
+    "6": {
+        "dynamic_title": "Profile 6: Single carriageway (30 mph) under Darkness - lights lit",
+        "total_incidents": 4098,
+        "ksi_ratio": 19.32650073206442,
+        "modes": {
+            "road_type": "Single carriageway",
+            "speed_limit": "30 mph",
+            "light_conditions": "Darkness - lights lit",
+            "weather_conditions": "Fine, no high winds",
+            "junction_detail": "T or staggered junction",
+            "urban_or_rural_area": "Urban"
+        }
+    },
+    "7": {
+        "dynamic_title": "Profile 7: Dual carriageway (50 mph) under Daylight",
+        "total_incidents": 2412,
+        "ksi_ratio": 16.29353233830846,
+        "modes": {
+            "road_type": "Dual carriageway",
+            "speed_limit": "50 mph",
+            "light_conditions": "Daylight",
+            "weather_conditions": "Fine, no high winds",
+            "junction_detail": "Not at or near junction",
+            "urban_or_rural_area": "Urban"
+        }
+    },
+    "8": {
+        "dynamic_title": "Profile 8: Single carriageway (20 mph) under Darkness - lights lit",
+        "total_incidents": 6320,
+        "ksi_ratio": 18.89240506329114,
+        "modes": {
+            "road_type": "Single carriageway",
+            "speed_limit": "20 mph",
+            "light_conditions": "Darkness - lights lit",
+            "weather_conditions": "Fine, no high winds",
+            "junction_detail": "T or staggered junction",
+            "urban_or_rural_area": "Urban"
+        }
+    }
+}
