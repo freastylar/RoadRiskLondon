@@ -14,6 +14,7 @@ from roadrisk.ui.theme import configure_page, show_limitations
 from roadrisk.utils.validation import DataValidationError
 
 
+@st.cache_data
 def _aggregate_condition(df: pd.DataFrame) -> pd.DataFrame:
     summary = (
         df.groupby(["condition", "condition_label", "category", "category_label"], dropna=False)
@@ -67,11 +68,6 @@ def _format_table(df: pd.DataFrame) -> pd.DataFrame:
             "serious_harm_score": "Total serious-harm score",
             "harm_score_per_collision": "Average harm per collision",
         }
-    )
-    table["KSI rate"] = table["KSI rate"].map(lambda value: f"{value:.1%}")
-    table["Vs average KSI rate"] = table["Vs average KSI rate"].map(lambda value: f"{value:.2f}x")
-    table["Average harm per collision"] = table["Average harm per collision"].map(
-        lambda value: f"{value:.2f}"
     )
     return table
 
@@ -142,6 +138,10 @@ rank_label = st.segmented_control(
     ],
     default="Average harm per collision",
 )
+
+if rank_label is None:
+    rank_label = "Average harm per collision"
+
 metric_columns = {
     "Average harm per collision": "harm_score_per_collision",
     "Total serious harm": "serious_harm_score",
@@ -177,10 +177,16 @@ top_by_volume = summary.sort_values("total_collisions", ascending=False).iloc[0]
 selected_ksi_rate = summary["ksi_collisions"].sum() / summary["total_collisions"].sum()
 
 card_1, card_2, card_3, card_4 = st.columns(4)
-card_1.metric("Highest average harm", str(top_by_severity["category_display"]))
-card_2.metric("Most KSI collisions", str(top_by_burden["category_display"]), f"{int(top_by_burden['ksi_collisions']):,}")
-card_3.metric("Highest KSI rate", str(top_by_rate["category_display"]), f"{top_by_rate['ksi_rate']:.1%}")
-card_4.metric("Selected KSI rate", f"{selected_ksi_rate:.1%}")
+card_1.metric(label=f"Highest Harm: {top_by_severity['category_display']}", value="Highest")
+card_2.metric(label=f"Most KSI: {top_by_burden['category_display']}", value=f"{int(top_by_burden['ksi_collisions']):,}")
+card_3.metric(label=f"Highest KSI Rate: {top_by_rate['category_display']}", value=f"{top_by_rate['ksi_rate']:.1%}")
+card_4.metric(label="Selected Layer KSI Rate", value=f"{selected_ksi_rate:.1%}")
+
+st.subheader("💡 Strategic Planning Takeaway")
+st.markdown(f"""
+    Based on the selected data layer, **{top_by_severity['category_display']}** represents the environment with the highest risk of fatal or severe consequences once a failure occurs. 
+    However, from a budget allocation perspective, infrastructure interventions should target **{top_by_burden['category_display']}**, as it accounts for the largest absolute volume of severe casualties (**{int(top_by_burden['ksi_collisions']):,}** KSI cases), making it the city's primary infrastructure blindspot.
+""")
 
 current_top = summary.sort_values(metric_column, ascending=False).iloc[0]
 st.info(
@@ -191,86 +197,157 @@ st.info(
 )
 
 ranked = summary.sort_values(metric_column, ascending=False).head(top_n)
-chart = ranked.sort_values(metric_column, ascending=True)
-fig = px.bar(
-    chart,
-    x=metric_column,
-    y="category_display",
-    orientation="h",
-    color="ksi_rate",
-    color_continuous_scale="Reds",
-    hover_data={
-        "condition_label": True,
-        "total_collisions": ":,",
-        "fatal_collisions": ":,",
-        "serious_collisions": ":,",
-        "slight_collisions": ":,",
-        "ksi_collisions": ":,",
-        "ksi_rate": ":.1%",
-        "relative_ksi_rate": ":.2f",
-        "category_display": False,
-    },
-    labels={
-        metric_column: rank_label,
-        "category_display": "",
-        "condition_label": "Factor",
-        "total_collisions": "Total collisions",
-        "ksi_rate": "KSI rate",
-        "relative_ksi_rate": "Vs selected average",
-    },
-)
-fig.update_layout(
-    margin={"l": 20, "r": 20, "t": 20, "b": 20},
-    coloraxis_colorbar={"title": "KSI rate"},
-    yaxis_title=None,
-)
-st.plotly_chart(fig, width="stretch")
 
-composition = ranked[
-    [
-        "category_display",
-        "fatal_collisions",
-        "serious_collisions",
-        "slight_collisions",
-        "total_collisions",
-    ]
-].copy()
-for column in ["fatal_collisions", "serious_collisions", "slight_collisions"]:
-    composition[column] = composition[column] / composition["total_collisions"]
-composition = composition.melt(
-    id_vars=["category_display"],
-    value_vars=["fatal_collisions", "serious_collisions", "slight_collisions"],
-    var_name="severity",
-    value_name="share",
-)
-severity_labels = {
-    "fatal_collisions": "Fatal",
-    "serious_collisions": "Serious",
-    "slight_collisions": "Slight",
-}
-composition["severity"] = composition["severity"].map(severity_labels)
+tab_rankings, tab_risk, tab_quadrant, tab_composition, tab_data = st.tabs([
+    "📊 Metric Rankings",
+    "🎯 Relative Risk Index",
+    "🧭 Quadrant Analysis",
+    "📈 Severity Composition",
+    "📋 Detailed Factor Register"
+])
 
-composition_fig = px.bar(
-    composition,
-    x="category_display",
-    y="share",
-    color="severity",
-    color_discrete_map={"Fatal": "#7f1d1d", "Serious": "#ef4444", "Slight": "#fecaca"},
-    labels={
-        "category_display": "",
-        "share": "Share of collisions",
-        "severity": "Severity",
-    },
-)
-composition_fig.update_layout(
-    barmode="stack",
-    yaxis_tickformat=".0%",
-    xaxis_tickangle=-35,
-    margin={"l": 20, "r": 20, "t": 20, "b": 140},
-)
-st.plotly_chart(composition_fig, width="stretch")
+with tab_rankings:
+    chart = ranked.sort_values(metric_column, ascending=True)
+    fig = px.bar(
+        chart,
+        x=metric_column,
+        y="category_display",
+        orientation="h",
+        color="ksi_rate",
+        color_continuous_scale="Reds",
+        hover_data={
+            "condition_label": True,
+            "total_collisions": ":,",
+            "fatal_collisions": ":,",
+            "serious_collisions": ":,",
+            "slight_collisions": ":,",
+            "ksi_collisions": ":,",
+            "ksi_rate": ":.1%",
+            "relative_ksi_rate": ":.2f",
+            "category_display": False,
+        },
+        labels={
+            metric_column: rank_label,
+            "category_display": "",
+            "condition_label": "Factor",
+            "total_collisions": "Total collisions",
+            "ksi_rate": "KSI rate",
+            "relative_ksi_rate": "Vs selected average",
+        },
+    )
+    fig.update_traces(
+        texttemplate='%{x:.2f}' if "harm" in metric_column or "rate" in metric_column else '%{x:,}', 
+        textposition='outside'
+    )
+    fig.update_layout(
+        margin={"l": 20, "r": 50, "t": 20, "b": 20},
+        coloraxis_colorbar={"title": "KSI rate"},
+        yaxis=dict(showgrid=False, tickmode="linear"),
+        xaxis=dict(showgrid=True, gridcolor="rgba(200, 200, 200, 0.15)"),
+        plot_bgcolor="rgba(0,0,0,0)",
+    )
+    st.plotly_chart(fig, width="stretch")
 
-st.dataframe(_format_table(ranked), width="stretch", hide_index=True)
+with tab_risk:
+    chart_div = ranked.sort_values("relative_ksi_rate", ascending=True)
+    fig_div = px.bar(
+        chart_div,
+        x="relative_ksi_rate",
+        y="category_display",
+        orientation="h",
+        color="relative_ksi_rate",
+        color_continuous_scale=["#16a34a", "#ca8a04", "#dc2626"],
+        color_continuous_midpoint=1.0,
+        labels={"relative_ksi_rate": "Severity Multiplier", "category_display": ""}
+    )
+    fig_div.add_vline(x=1.0, line_dash="dash", line_color="#ef4444", annotation_text="London Average Baseline")
+    fig_div.update_layout(
+        plot_bgcolor="rgba(0,0,0,0)", 
+        margin={"l": 20, "r": 20, "t": 40, "b": 20},
+        coloraxis_showscale=False
+    )
+    st.plotly_chart(fig_div, width="stretch")
+
+with tab_quadrant:
+    fig_scatter = px.scatter(
+        summary,
+        x="total_collisions",
+        y="harm_score_per_collision",
+        text="category_label",
+        size="ksi_collisions",
+        color="ksi_rate",
+        color_continuous_scale="Reds",
+        labels={
+            "total_collisions": "Total Reported Collisions (Volume)",
+            "harm_score_per_collision": "Average Harm Score (Severity)",
+            "ksi_rate": "KSI Rate"
+        }
+    )
+    fig_scatter.update_traces(textposition="top center")
+    fig_scatter.add_hline(y=summary["harm_score_per_collision"].median(), line_dash="dot", line_color="gray")
+    fig_scatter.add_vline(x=summary["total_collisions"].median(), line_dash="dot", line_color="gray")
+    fig_scatter.update_layout(plot_bgcolor="rgba(0,0,0,0)")
+    st.plotly_chart(fig_scatter, width="stretch")
+
+with tab_composition:
+    composition = ranked[
+        [
+            "category_display",
+            "fatal_collisions",
+            "serious_collisions",
+            "slight_collisions",
+            "total_collisions",
+        ]
+    ].copy()
+    for column in ["fatal_collisions", "serious_collisions", "slight_collisions"]:
+        composition[column] = composition[column] / composition["total_collisions"]
+    composition = composition.melt(
+        id_vars=["category_display"],
+        value_vars=["fatal_collisions", "serious_collisions", "slight_collisions"],
+        var_name="severity",
+        value_name="share",
+    )
+    severity_labels = {
+        "fatal_collisions": "Fatal",
+        "serious_collisions": "Serious",
+        "slight_collisions": "Slight",
+    }
+    composition["severity"] = composition["severity"].map(severity_labels)
+
+    composition_fig = px.bar(
+        composition,
+        x="category_display",
+        y="share",
+        color="severity",
+        color_discrete_map={"Fatal": "#7f1d1d", "Serious": "#ef4444", "Slight": "#fecaca"},
+        labels={
+            "category_display": "",
+            "share": "Share of collisions",
+            "severity": "Severity",
+        },
+    )
+    composition_fig.update_layout(
+        barmode="stack",
+        yaxis_tickformat=".0%",
+        xaxis_tickangle=-35,
+        margin={"l": 20, "r": 20, "t": 20, "b": 140},
+    )
+    st.plotly_chart(composition_fig, width="stretch")
+
+with tab_data:
+    raw_table = _format_table(ranked)
+    st.dataframe(
+        raw_table,
+        width="stretch",
+        hide_index=True,
+        column_config={
+            "Total collisions": st.column_config.NumberColumn("Total Collisions", format="%d"),
+            "KSI rate": st.column_config.ProgressColumn("KSI Rate", format="%.1%", min_value=0.0, max_value=1.0),
+            "Vs average KSI rate": st.column_config.NumberColumn("Vs Avg Multiplier", format="%.2fx"),
+            "Average harm per collision": st.column_config.NumberColumn("Avg Harm Score", format="%.2f"),
+            "Total serious-harm score": st.column_config.BarChartColumn("Serious Harm Burden")
+        }
+    )
 
 if factor_view == "All categories":
     st.caption(
