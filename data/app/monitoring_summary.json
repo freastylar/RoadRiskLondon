@@ -1,0 +1,94 @@
+{
+  "class_balance_by_year": [
+    {
+      "accident_year": 2020,
+      "ksi_count": 2942,
+      "ksi_rate": 0.1401219279862831,
+      "records": 20996
+    },
+    {
+      "accident_year": 2021,
+      "ksi_count": 3480,
+      "ksi_rate": 0.15047347256453497,
+      "records": 23127
+    },
+    {
+      "accident_year": 2022,
+      "ksi_count": 3823,
+      "ksi_rate": 0.1628402266047621,
+      "records": 23477
+    },
+    {
+      "accident_year": 2023,
+      "ksi_count": 3598,
+      "ksi_rate": 0.15715221664118803,
+      "records": 22895
+    },
+    {
+      "accident_year": 2024,
+      "ksi_count": 3601,
+      "ksi_rate": 0.17174607716888443,
+      "records": 20967
+    }
+  ],
+  "known_limitations": [
+    "Reported personal-injury collisions only.",
+    "Severity reporting changed over time.",
+    "Predictions are statistical associations, not causal estimates."
+  ],
+  "missingness_by_year": [
+    {
+      "accident_year": 2020,
+      "mean_missing_share": 0.0
+    },
+    {
+      "accident_year": 2021,
+      "mean_missing_share": 3.202926193370263e-06
+    },
+    {
+      "accident_year": 2022,
+      "mean_missing_share": 0.0
+    },
+    {
+      "accident_year": 2023,
+      "mean_missing_share": 0.0
+    },
+    {
+      "accident_year": 2024,
+      "mean_missing_share": 0.0
+    }
+  ],
+  "model_name": "severity_model_mvp",
+  "model_type": "logistic_regression_balanced",
+  "split": {
+    "test_years": [
+      2024
+    ],
+    "train_years": [
+      2020,
+      2021,
+      2022
+    ],
+    "validation_years": [
+      2023
+    ]
+  },
+  "test_metrics": {
+    "confusion_matrix": [
+      [
+        9260,
+        8106
+      ],
+      [
+        879,
+        2722
+      ]
+    ],
+    "f1": 0.3772957238893894,
+    "pr_auc": 0.31953223034479766,
+    "precision": 0.2513852973771703,
+    "recall": 0.7559011385726188,
+    "roc_auc": 0.703327447239677,
+    "threshold": 0.5
+  }
+}

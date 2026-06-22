@@ -1,0 +1,37 @@
+{
+  "assumptions": [
+    "Crashes snapped to the nearest OSM road centreline within 60 m.",
+    "Exposure uses nearest traffic count x standard hourly profile x fixed mode share.",
+    "Reported personal-injury collisions only; not a guaranteed personal probability.",
+    "Thin slices smoothed toward the London average and flagged Low confidence."
+  ],
+  "global_risk_per_trip": 9.802768624119152e-05,
+  "hour_buckets": [
+    "Night (00-06)",
+    "Morning (06-10)",
+    "Midday (10-16)",
+    "Evening (16-20)",
+    "Late (20-24)"
+  ],
+  "modes": [
+    "Bicycle",
+    "Bus / coach",
+    "Car",
+    "Motorcycle",
+    "Van / goods"
+  ],
+  "road_labels": 13859,
+  "roads": 17754,
+  "rows": 109366,
+  "weather_categories": [
+    "Fine",
+    "Fog/mist",
+    "Other",
+    "Rain",
+    "Snow"
+  ],
+  "year_range": [
+    2020,
+    2024
+  ]
+}
