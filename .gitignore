@@ -40,6 +40,7 @@ data/app/*
 *.xls
 *.parquet
 *.feather
+cache/
 
 # Generated model artifacts and reports
 models/registry/*

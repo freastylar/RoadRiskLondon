@@ -38,16 +38,13 @@ st.markdown("""
     Profile definitions and intervention targets are generated procedurally based on data constraints.
 """)
 
-st.sidebar.header("Profile Selection")
+st.subheader("Profile Selection")
 menu_options = {k: v["dynamic_title"] for k, v in typology_summary.items()}
-selected_title = st.sidebar.selectbox("Select Target Profile", options=list(menu_options.values()))
+selected_title = st.selectbox("Select Target Profile", options=list(menu_options.values()), label_visibility="collapsed")
 
 cluster_id = [k for k, v in menu_options.items() if v == selected_title][0]
 cluster_meta = typology_summary[cluster_id]
 modes = cluster_meta['modes']
-
-st.sidebar.header("Map Layer Constraints")
-view_mode = st.sidebar.radio("Mapping View Mode", options=["All Incidents", "Prioritized Hotspots"])
 
 col1, col2, col3 = st.columns(3)
 with col1:
@@ -57,24 +54,24 @@ with col2:
 with col3:
     st.metric("Dominant Weather Condition", modes.get('weather_conditions', 'Various'))
 
-st.subheader("🛠️ Targeted Infrastructure Interventions")
+st.subheader("Targeted Infrastructure Interventions")
 audit_recommendations = []
 
 if cluster_id == "-1":
-    audit_recommendations.append("- **Custom Direct Audit Required:** These incidents represent unique environmental or spatial outliers that deviate heavily from standard systemic profiles.")
+    audit_recommendations.append("- Custom Direct Audit Required: These incidents represent unique environmental or spatial outliers that deviate heavily from standard systemic profiles.")
 else:
     if "dark" in modes.get('light_conditions', '').lower():
-        audit_recommendations.append("- **Visibility/Lighting:** Schedule structural night audits, replace aging fixtures, or implement high-intensity LED systems.")
+        audit_recommendations.append("- Visibility/Lighting: Schedule structural night audits, replace aging fixtures, or implement high-intensity LED systems.")
     speed_digits = ''.join(filter(str.isdigit, modes.get('speed_limit', '')))
     if speed_digits and int(speed_digits) >= 40:
-        audit_recommendations.append("- **Speed Management:** Evaluate corridor-segregation barriers or deploy speed-enforcement cameras.")
+        audit_recommendations.append("- Speed Management: Evaluate corridor-segregation barriers or deploy speed-enforcement cameras.")
     if "junction" in modes.get('junction_detail', '').lower() or "crossroads" in modes.get('junction_detail', '').lower():
-        audit_recommendations.append("- **Intersection Safety:** Adjust signal timing offsets or upgrade conflict-zone line markings.")
+        audit_recommendations.append("- Intersection Safety: Adjust signal timing offsets or upgrade conflict-zone line markings.")
     if any(x in modes.get('weather_conditions', '').lower() for x in ["rain", "wet", "damp"]):
-        audit_recommendations.append("- **Surface Treatment:** Apply high-friction anti-skid resurfacing overlays at high-density coordinates.")
+        audit_recommendations.append("- Surface Treatment: Apply high-friction anti-skid resurfacing overlays at high-density coordinates.")
 
 if not audit_recommendations:
-    audit_recommendations.append("- **General Safety Review:** Implement standard local traffic calming and density mitigation measures.")
+    audit_recommendations.append("- General Safety Review: Implement standard local traffic calming and density mitigation measures.")
 
 st.info("\n".join(audit_recommendations))
 
@@ -82,11 +79,14 @@ st.subheader("Statistical Profile Archetype")
 modes_df = pd.DataFrame.from_dict(modes, orient='index', columns=['Dominant Context Metric'])
 st.table(modes_df)
 
+st.subheader("Map Constraints")
+view_mode = st.radio("Mapping View Mode", options=["Prioritized Hotspots", "All Incidents"], horizontal=True)
+
 df_filtered = df_points[df_points['typology_cluster'] == int(cluster_id)].copy()
 
 if view_mode == "Prioritized Hotspots":
     df_filtered = df_filtered[df_filtered['is_hotspot'] == True]
-    min_accidents = st.sidebar.slider("Minimum incidents per hotspot location", min_value=1, max_value=20, value=3)
+    min_accidents = st.slider("Minimum incidents per hotspot location", min_value=1, max_value=20, value=3)
     df_filtered = df_filtered[df_filtered['weight'] >= min_accidents]
     st.subheader(f"Prioritized Hotspots for Profile: {selected_title}")
     st.caption(f"Showing aggregated risk locations containing a minimum of {min_accidents} recurring profile incidents.")
@@ -125,4 +125,4 @@ st.pydeck_chart(pdk.Deck(
     ],
 ))
 
-show_limitations()
+show_limitations()  

@@ -3,6 +3,11 @@ name = "roadrisk-london"
 version = "0.1.0"
 description = "Data-first Streamlit and scikit-learn road-safety risk app for London."
 requires-python = ">=3.11"
+dependencies = [
+    "kmodes>=0.12.2",
+    "matplotlib>=3.11.0",
+    "osmnx>=2.1.0",
+]
 
 [tool.ruff]
 line-length = 100

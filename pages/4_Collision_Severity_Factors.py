@@ -182,7 +182,7 @@ card_2.metric(label=f"Most KSI: {top_by_burden['category_display']}", value=f"{i
 card_3.metric(label=f"Highest KSI Rate: {top_by_rate['category_display']}", value=f"{top_by_rate['ksi_rate']:.1%}")
 card_4.metric(label="Selected Layer KSI Rate", value=f"{selected_ksi_rate:.1%}")
 
-st.subheader("💡 Strategic Planning Takeaway")
+st.subheader("Strategic Planning Takeaway")
 st.markdown(f"""
     Based on the selected data layer, **{top_by_severity['category_display']}** represents the environment with the highest risk of fatal or severe consequences once a failure occurs. 
     However, from a budget allocation perspective, infrastructure interventions should target **{top_by_burden['category_display']}**, as it accounts for the largest absolute volume of severe casualties (**{int(top_by_burden['ksi_collisions']):,}** KSI cases), making it the city's primary infrastructure blindspot.
@@ -199,11 +199,11 @@ st.info(
 ranked = summary.sort_values(metric_column, ascending=False).head(top_n)
 
 tab_rankings, tab_risk, tab_quadrant, tab_composition, tab_data = st.tabs([
-    "📊 Metric Rankings",
-    "🎯 Relative Risk Index",
-    "🧭 Quadrant Analysis",
-    "📈 Severity Composition",
-    "📋 Detailed Factor Register"
+    "Metric Rankings",
+    "Relative Risk Index",
+    "Quadrant Analysis",
+    "Severity Composition",
+    "Detailed Factor Register"
 ])
 
 with tab_rankings:
@@ -269,24 +269,41 @@ with tab_risk:
     st.plotly_chart(fig_div, width="stretch")
 
 with tab_quadrant:
+    x_median = summary["total_collisions"].median()
+    y_median = summary["harm_score_per_collision"].median()
+    
     fig_scatter = px.scatter(
         summary,
         x="total_collisions",
         y="harm_score_per_collision",
-        text="category_label",
+        text="category_label" if factor_view == "One factor type" else None,
         size="ksi_collisions",
         color="ksi_rate",
         color_continuous_scale="Reds",
+        hover_name="category_display",
+        hover_data={
+            "total_collisions": ":,",
+            "harm_score_per_collision": ":.2f",
+            "ksi_rate": ":.1%"
+        },
         labels={
             "total_collisions": "Total Reported Collisions (Volume)",
             "harm_score_per_collision": "Average Harm Score (Severity)",
             "ksi_rate": "KSI Rate"
         }
     )
-    fig_scatter.update_traces(textposition="top center")
-    fig_scatter.add_hline(y=summary["harm_score_per_collision"].median(), line_dash="dot", line_color="gray")
-    fig_scatter.add_vline(x=summary["total_collisions"].median(), line_dash="dot", line_color="gray")
-    fig_scatter.update_layout(plot_bgcolor="rgba(0,0,0,0)")
+    
+    if factor_view == "One factor type":
+        fig_scatter.update_traces(textposition="top center")
+        
+    fig_scatter.add_hline(y=y_median, line_dash="dash", line_color="rgba(128, 128, 128, 0.6)", line_width=1.5)
+    fig_scatter.add_vline(x=x_median, line_dash="dash", line_color="rgba(128, 128, 128, 0.6)", line_width=1.5)
+    
+    fig_scatter.update_layout(
+        plot_bgcolor="rgba(0,0,0,0)",
+        xaxis=dict(showgrid=True, gridcolor="rgba(200, 200, 200, 0.15)"),
+        yaxis=dict(showgrid=True, gridcolor="rgba(200, 200, 200, 0.15)")
+    )
     st.plotly_chart(fig_scatter, width="stretch")
 
 with tab_composition:
