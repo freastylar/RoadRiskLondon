@@ -26,12 +26,37 @@ The app reads only from `data/app/` and `models/registry/`. It does not download
 - **Model Evaluation**: chronological model metrics, confusion matrix, calibration, feature importance, threshold tradeoffs, vulnerable-user slices, and borough performance slices.
 - **Model Monitoring**: yearly KSI class balance, missingness summary, test metrics, and limitations.
 - **Methodology**: source, target, modelling, priority-score, and limitation notes.
+- **Trip Risk by Road**: relative collision risk along real London roads by hour, day, weather, and travel mode. Crashes are snapped to OpenStreetMap road centrelines; risk is shown as a multiple of the typical road (a relative index, not an absolute per-trip probability).
 
 ## Setup
 
 ```bash
 python -m pip install -r requirements.txt
 ```
+
+## Setup for collaborators
+
+After cloning, the app needs prebuilt data artifacts that are **not** stored in
+git (the parquet/JSON files under `data/app/` and `models/registry/` are
+gitignored). You have two options:
+
+1. **Share the artifacts directly** (fastest): copy the `data/app/` and
+   `models/registry/` folders from a teammate who has already built them. The
+   app then runs immediately with `streamlit run app.py`.
+2. **Rebuild from source**: run the pipeline below to regenerate everything from
+   the raw DfT downloads.
+
+The **Trip Risk by Road** page additionally needs road and traffic artifacts:
+
+```bash
+python scripts/14_fetch_london_roads.py                                  # OSM road network (needs network)
+python scripts/13_build_hourly_traffic_profiles.py                       # hourly exposure profiles
+python scripts/15_build_road_risk.py --mode modeling --start-year 2015 --end-year 2024
+```
+
+This reads the London-filtered traffic counts in `data/raw/traffic/` and writes
+`road_risk_table.parquet`, `road_risk_meta.json`, and `road_base_geometry.parquet`
+into `data/app/`.
 
 ## MVP Pipeline
 
