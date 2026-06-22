@@ -1,0 +1,2002 @@
+{
+  "baseline_test": {
+    "confusion_matrix": [
+      [
+        17366,
+        0
+      ],
+      [
+        3601,
+        0
+      ]
+    ],
+    "f1": 0.0,
+    "pr_auc": 0.17174607716888443,
+    "precision": 0.0,
+    "recall": 0.0,
+    "roc_auc": 0.5,
+    "threshold": 0.5
+  },
+  "baseline_validation": {
+    "confusion_matrix": [
+      [
+        19297,
+        0
+      ],
+      [
+        3598,
+        0
+      ]
+    ],
+    "f1": 0.0,
+    "pr_auc": 0.15715221664118803,
+    "precision": 0.0,
+    "recall": 0.0,
+    "roc_auc": 0.5,
+    "threshold": 0.5
+  },
+  "class_balance": {
+    "test_ksi_rate": 0.17174607716888443,
+    "train_ksi_rate": 0.15155325443786982,
+    "validation_ksi_rate": 0.15715221664118803
+  },
+  "model_name": "severity_model_mvp",
+  "model_type": "logistic_regression_balanced",
+  "split": {
+    "test_years": [
+      2024
+    ],
+    "train_years": [
+      2020,
+      2021,
+      2022
+    ],
+    "validation_years": [
+      2023
+    ]
+  },
+  "test": {
+    "confusion_matrix": [
+      [
+        9260,
+        8106
+      ],
+      [
+        879,
+        2722
+      ]
+    ],
+    "f1": 0.3772957238893894,
+    "pr_auc": 0.31953223034479766,
+    "precision": 0.2513852973771703,
+    "recall": 0.7559011385726188,
+    "roc_auc": 0.703327447239677,
+    "threshold": 0.5
+  },
+  "test_borough_slices": [
+    {
+      "borough": "Westminster",
+      "borough_code": "E09000033",
+      "confusion_matrix": [
+        [
+          298,
+          569
+        ],
+        [
+          26,
+          201
+        ]
+      ],
+      "f1": 0.40320962888665995,
+      "ksi_count": 227,
+      "ksi_rate": 0.20749542961608775,
+      "pr_auc": 0.3506200893892764,
+      "precision": 0.261038961038961,
+      "recall": 0.8854625550660793,
+      "records": 1094,
+      "roc_auc": 0.6648273198888263,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Croydon",
+      "borough_code": "E09000008",
+      "confusion_matrix": [
+        [
+          446,
+          334
+        ],
+        [
+          38,
+          115
+        ]
+      ],
+      "f1": 0.38205980066445183,
+      "ksi_count": 153,
+      "ksi_rate": 0.1639871382636656,
+      "pr_auc": 0.3137647750425444,
+      "precision": 0.2561247216035635,
+      "recall": 0.7516339869281046,
+      "records": 933,
+      "roc_auc": 0.7097201273671863,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Enfield",
+      "borough_code": "E09000010",
+      "confusion_matrix": [
+        [
+          576,
+          229
+        ],
+        [
+          53,
+          64
+        ]
+      ],
+      "f1": 0.3121951219512195,
+      "ksi_count": 117,
+      "ksi_rate": 0.12689804772234273,
+      "pr_auc": 0.24933805681355797,
+      "precision": 0.21843003412969283,
+      "recall": 0.5470085470085471,
+      "records": 922,
+      "roc_auc": 0.7161543770239422,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Tower Hamlets",
+      "borough_code": "E09000030",
+      "confusion_matrix": [
+        [
+          368,
+          384
+        ],
+        [
+          41,
+          108
+        ]
+      ],
+      "f1": 0.3369734789391576,
+      "ksi_count": 149,
+      "ksi_rate": 0.16537180910099888,
+      "pr_auc": 0.2868843564295393,
+      "precision": 0.21951219512195122,
+      "recall": 0.7248322147651006,
+      "records": 901,
+      "roc_auc": 0.6712301870626874,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Southwark",
+      "borough_code": "E09000028",
+      "confusion_matrix": [
+        [
+          248,
+          412
+        ],
+        [
+          31,
+          184
+        ]
+      ],
+      "f1": 0.45376078914919854,
+      "ksi_count": 215,
+      "ksi_rate": 0.24571428571428572,
+      "pr_auc": 0.4148413547885148,
+      "precision": 0.3087248322147651,
+      "recall": 0.8558139534883721,
+      "records": 875,
+      "roc_auc": 0.6907188160676533,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Lambeth",
+      "borough_code": "E09000022",
+      "confusion_matrix": [
+        [
+          307,
+          393
+        ],
+        [
+          26,
+          148
+        ]
+      ],
+      "f1": 0.413986013986014,
+      "ksi_count": 174,
+      "ksi_rate": 0.19908466819221968,
+      "pr_auc": 0.34139409630721507,
+      "precision": 0.2735674676524954,
+      "recall": 0.8505747126436781,
+      "records": 874,
+      "roc_auc": 0.6922988505747126,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Brent",
+      "borough_code": "E09000005",
+      "confusion_matrix": [
+        [
+          489,
+          224
+        ],
+        [
+          43,
+          69
+        ]
+      ],
+      "f1": 0.34074074074074073,
+      "ksi_count": 112,
+      "ksi_rate": 0.13575757575757577,
+      "pr_auc": 0.3037854926313627,
+      "precision": 0.2354948805460751,
+      "recall": 0.6160714285714286,
+      "records": 825,
+      "roc_auc": 0.7424989981967542,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Wandsworth",
+      "borough_code": "E09000032",
+      "confusion_matrix": [
+        [
+          282,
+          376
+        ],
+        [
+          26,
+          135
+        ]
+      ],
+      "f1": 0.4017857142857143,
+      "ksi_count": 161,
+      "ksi_rate": 0.19658119658119658,
+      "pr_auc": 0.3709426435315927,
+      "precision": 0.26418786692759294,
+      "recall": 0.8385093167701864,
+      "records": 819,
+      "roc_auc": 0.7077252732730464,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Barnet",
+      "borough_code": "E09000003",
+      "confusion_matrix": [
+        [
+          410,
+          260
+        ],
+        [
+          30,
+          77
+        ]
+      ],
+      "f1": 0.34684684684684686,
+      "ksi_count": 107,
+      "ksi_rate": 0.1377091377091377,
+      "pr_auc": 0.31312083811092783,
+      "precision": 0.228486646884273,
+      "recall": 0.719626168224299,
+      "records": 777,
+      "roc_auc": 0.7414562700516111,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Newham",
+      "borough_code": "E09000025",
+      "confusion_matrix": [
+        [
+          377,
+          287
+        ],
+        [
+          29,
+          74
+        ]
+      ],
+      "f1": 0.31896551724137934,
+      "ksi_count": 103,
+      "ksi_rate": 0.13428943937418514,
+      "pr_auc": 0.3744292781846324,
+      "precision": 0.20498614958448755,
+      "recall": 0.7184466019417476,
+      "records": 767,
+      "roc_auc": 0.7187097906187859,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Haringey",
+      "borough_code": "E09000014",
+      "confusion_matrix": [
+        [
+          436,
+          233
+        ],
+        [
+          28,
+          69
+        ]
+      ],
+      "f1": 0.3458646616541353,
+      "ksi_count": 97,
+      "ksi_rate": 0.12663185378590078,
+      "pr_auc": 0.2892826767303466,
+      "precision": 0.22847682119205298,
+      "recall": 0.711340206185567,
+      "records": 766,
+      "roc_auc": 0.7436241197047447,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Ealing",
+      "borough_code": "E09000009",
+      "confusion_matrix": [
+        [
+          392,
+          228
+        ],
+        [
+          46,
+          97
+        ]
+      ],
+      "f1": 0.41452991452991456,
+      "ksi_count": 143,
+      "ksi_rate": 0.1874180865006553,
+      "pr_auc": 0.37331172100538157,
+      "precision": 0.29846153846153844,
+      "recall": 0.6783216783216783,
+      "records": 763,
+      "roc_auc": 0.7287277238890143,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Lewisham",
+      "borough_code": "E09000023",
+      "confusion_matrix": [
+        [
+          341,
+          258
+        ],
+        [
+          37,
+          95
+        ]
+      ],
+      "f1": 0.3917525773195876,
+      "ksi_count": 132,
+      "ksi_rate": 0.18057455540355677,
+      "pr_auc": 0.2776635639727478,
+      "precision": 0.26912181303116145,
+      "recall": 0.7196969696969697,
+      "records": 731,
+      "roc_auc": 0.6867127029898314,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Hackney",
+      "borough_code": "E09000012",
+      "confusion_matrix": [
+        [
+          259,
+          353
+        ],
+        [
+          26,
+          87
+        ]
+      ],
+      "f1": 0.31464737793851716,
+      "ksi_count": 113,
+      "ksi_rate": 0.15586206896551724,
+      "pr_auc": 0.2431158785593831,
+      "precision": 0.19772727272727272,
+      "recall": 0.7699115044247787,
+      "records": 725,
+      "roc_auc": 0.6279281624154086,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Camden",
+      "borough_code": "E09000007",
+      "confusion_matrix": [
+        [
+          264,
+          291
+        ],
+        [
+          23,
+          74
+        ]
+      ],
+      "f1": 0.3203463203463203,
+      "ksi_count": 97,
+      "ksi_rate": 0.14877300613496933,
+      "pr_auc": 0.30528252931853844,
+      "precision": 0.20273972602739726,
+      "recall": 0.7628865979381443,
+      "records": 652,
+      "roc_auc": 0.6891984768273429,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Hounslow",
+      "borough_code": "E09000018",
+      "confusion_matrix": [
+        [
+          260,
+          255
+        ],
+        [
+          29,
+          93
+        ]
+      ],
+      "f1": 0.39574468085106385,
+      "ksi_count": 122,
+      "ksi_rate": 0.19152276295133439,
+      "pr_auc": 0.33542019072386914,
+      "precision": 0.2672413793103448,
+      "recall": 0.7622950819672131,
+      "records": 637,
+      "roc_auc": 0.6812669107114435,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Hillingdon",
+      "borough_code": "E09000017",
+      "confusion_matrix": [
+        [
+          313,
+          230
+        ],
+        [
+          17,
+          64
+        ]
+      ],
+      "f1": 0.3413333333333333,
+      "ksi_count": 81,
+      "ksi_rate": 0.12980769230769232,
+      "pr_auc": 0.34367765879828005,
+      "precision": 0.21768707482993196,
+      "recall": 0.7901234567901234,
+      "records": 624,
+      "roc_auc": 0.7474933497032945,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Redbridge",
+      "borough_code": "E09000026",
+      "confusion_matrix": [
+        [
+          374,
+          169
+        ],
+        [
+          31,
+          50
+        ]
+      ],
+      "f1": 0.3333333333333333,
+      "ksi_count": 81,
+      "ksi_rate": 0.12980769230769232,
+      "pr_auc": 0.34823361436014544,
+      "precision": 0.228310502283105,
+      "recall": 0.6172839506172839,
+      "records": 624,
+      "roc_auc": 0.7371029716026647,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Greenwich",
+      "borough_code": "E09000011",
+      "confusion_matrix": [
+        [
+          294,
+          178
+        ],
+        [
+          43,
+          70
+        ]
+      ],
+      "f1": 0.3878116343490305,
+      "ksi_count": 113,
+      "ksi_rate": 0.19316239316239317,
+      "pr_auc": 0.3281692755677493,
+      "precision": 0.28225806451612906,
+      "recall": 0.6194690265486725,
+      "records": 585,
+      "roc_auc": 0.6901342432878357,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Kensington and Chelsea",
+      "borough_code": "E09000020",
+      "confusion_matrix": [
+        [
+          217,
+          222
+        ],
+        [
+          35,
+          90
+        ]
+      ],
+      "f1": 0.41189931350114417,
+      "ksi_count": 125,
+      "ksi_rate": 0.22163120567375885,
+      "pr_auc": 0.3971377906694008,
+      "precision": 0.28846153846153844,
+      "recall": 0.72,
+      "records": 564,
+      "roc_auc": 0.6579498861047837,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Havering",
+      "borough_code": "E09000016",
+      "confusion_matrix": [
+        [
+          283,
+          186
+        ],
+        [
+          21,
+          69
+        ]
+      ],
+      "f1": 0.4,
+      "ksi_count": 90,
+      "ksi_rate": 0.16100178890876565,
+      "pr_auc": 0.33792015995701086,
+      "precision": 0.27058823529411763,
+      "recall": 0.7666666666666667,
+      "records": 559,
+      "roc_auc": 0.7337597725657428,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Bromley",
+      "borough_code": "E09000006",
+      "confusion_matrix": [
+        [
+          233,
+          242
+        ],
+        [
+          24,
+          59
+        ]
+      ],
+      "f1": 0.3072916666666667,
+      "ksi_count": 83,
+      "ksi_rate": 0.14874551971326164,
+      "pr_auc": 0.21392666772557295,
+      "precision": 0.19601328903654486,
+      "recall": 0.7108433734939759,
+      "records": 558,
+      "roc_auc": 0.6302599873176918,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Islington",
+      "borough_code": "E09000019",
+      "confusion_matrix": [
+        [
+          193,
+          258
+        ],
+        [
+          18,
+          83
+        ]
+      ],
+      "f1": 0.3755656108597285,
+      "ksi_count": 101,
+      "ksi_rate": 0.18297101449275363,
+      "pr_auc": 0.33290807215451423,
+      "precision": 0.2434017595307918,
+      "recall": 0.8217821782178217,
+      "records": 552,
+      "roc_auc": 0.6615881100305152,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Hammersmith and Fulham",
+      "borough_code": "E09000013",
+      "confusion_matrix": [
+        [
+          182,
+          250
+        ],
+        [
+          24,
+          85
+        ]
+      ],
+      "f1": 0.38288288288288286,
+      "ksi_count": 109,
+      "ksi_rate": 0.20147874306839186,
+      "pr_auc": 0.28628431182399394,
+      "precision": 0.2537313432835821,
+      "recall": 0.7798165137614679,
+      "records": 541,
+      "roc_auc": 0.6431362555215767,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Waltham Forest",
+      "borough_code": "E09000031",
+      "confusion_matrix": [
+        [
+          287,
+          146
+        ],
+        [
+          31,
+          35
+        ]
+      ],
+      "f1": 0.2834008097165992,
+      "ksi_count": 66,
+      "ksi_rate": 0.13226452905811623,
+      "pr_auc": 0.24168477461510834,
+      "precision": 0.19337016574585636,
+      "recall": 0.5303030303030303,
+      "records": 499,
+      "roc_auc": 0.6490657148855763,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Barking and Dagenham",
+      "borough_code": "E09000002",
+      "confusion_matrix": [
+        [
+          279,
+          154
+        ],
+        [
+          11,
+          38
+        ]
+      ],
+      "f1": 0.3153526970954357,
+      "ksi_count": 49,
+      "ksi_rate": 0.1016597510373444,
+      "pr_auc": 0.2506349001133044,
+      "precision": 0.19791666666666666,
+      "recall": 0.7755102040816326,
+      "records": 482,
+      "roc_auc": 0.7645284441721261,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Bexley",
+      "borough_code": "E09000004",
+      "confusion_matrix": [
+        [
+          151,
+          176
+        ],
+        [
+          12,
+          65
+        ]
+      ],
+      "f1": 0.4088050314465409,
+      "ksi_count": 77,
+      "ksi_rate": 0.1905940594059406,
+      "pr_auc": 0.2931255628612627,
+      "precision": 0.2697095435684647,
+      "recall": 0.8441558441558441,
+      "records": 404,
+      "roc_auc": 0.6815600301838833,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Merton",
+      "borough_code": "E09000024",
+      "confusion_matrix": [
+        [
+          156,
+          167
+        ],
+        [
+          11,
+          65
+        ]
+      ],
+      "f1": 0.42207792207792205,
+      "ksi_count": 76,
+      "ksi_rate": 0.19047619047619047,
+      "pr_auc": 0.35081087165083935,
+      "precision": 0.2801724137931034,
+      "recall": 0.8552631578947368,
+      "records": 399,
+      "roc_auc": 0.7104855792732605,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Sutton",
+      "borough_code": "E09000029",
+      "confusion_matrix": [
+        [
+          144,
+          155
+        ],
+        [
+          13,
+          50
+        ]
+      ],
+      "f1": 0.373134328358209,
+      "ksi_count": 63,
+      "ksi_rate": 0.17403314917127072,
+      "pr_auc": 0.3801590588469072,
+      "precision": 0.24390243902439024,
+      "recall": 0.7936507936507936,
+      "records": 362,
+      "roc_auc": 0.6914583001539523,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Harrow",
+      "borough_code": "E09000015",
+      "confusion_matrix": [
+        [
+          200,
+          101
+        ],
+        [
+          27,
+          31
+        ]
+      ],
+      "f1": 0.3263157894736842,
+      "ksi_count": 58,
+      "ksi_rate": 0.1615598885793872,
+      "pr_auc": 0.29731165010094346,
+      "precision": 0.23484848484848486,
+      "recall": 0.5344827586206896,
+      "records": 359,
+      "roc_auc": 0.6865620345973192,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Richmond upon Thames",
+      "borough_code": "E09000027",
+      "confusion_matrix": [
+        [
+          67,
+          181
+        ],
+        [
+          9,
+          82
+        ]
+      ],
+      "f1": 0.4632768361581921,
+      "ksi_count": 91,
+      "ksi_rate": 0.26843657817109146,
+      "pr_auc": 0.49788695427246277,
+      "precision": 0.311787072243346,
+      "recall": 0.9010989010989011,
+      "records": 339,
+      "roc_auc": 0.7169886565047856,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Kingston upon Thames",
+      "borough_code": "E09000021",
+      "confusion_matrix": [
+        [
+          118,
+          109
+        ],
+        [
+          19,
+          43
+        ]
+      ],
+      "f1": 0.40186915887850466,
+      "ksi_count": 62,
+      "ksi_rate": 0.21453287197231835,
+      "pr_auc": 0.38933151312779146,
+      "precision": 0.28289473684210525,
+      "recall": 0.6935483870967742,
+      "records": 289,
+      "roc_auc": 0.6430297001563167,
+      "threshold": 0.5
+    },
+    {
+      "borough": "City of London",
+      "borough_code": "E09000001",
+      "confusion_matrix": [
+        [
+          16,
+          96
+        ],
+        [
+          1,
+          53
+        ]
+      ],
+      "f1": 0.5221674876847291,
+      "ksi_count": 54,
+      "ksi_rate": 0.3253012048192771,
+      "pr_auc": 0.3804299717573739,
+      "precision": 0.35570469798657717,
+      "recall": 0.9814814814814815,
+      "records": 166,
+      "roc_auc": 0.6006944444444444,
+      "threshold": 0.5
+    }
+  ],
+  "test_slices": [
+    {
+      "confusion_matrix": [
+        [
+          4104,
+          7894
+        ],
+        [
+          450,
+          2669
+        ]
+      ],
+      "f1": 0.3901476392340301,
+      "ksi_count": 3119,
+      "ksi_rate": 0.2063240060858636,
+      "pr_auc": 0.3357400350142381,
+      "precision": 0.2526744296127994,
+      "recall": 0.8557229881372235,
+      "records": 15117,
+      "roc_auc": 0.665317362661865,
+      "slice": "Any vulnerable road user involved",
+      "threshold": 0.5
+    },
+    {
+      "confusion_matrix": [
+        [
+          5156,
+          212
+        ],
+        [
+          429,
+          53
+        ]
+      ],
+      "f1": 0.14190093708165996,
+      "ksi_count": 482,
+      "ksi_rate": 0.0823931623931624,
+      "pr_auc": 0.14529161211420288,
+      "precision": 0.2,
+      "recall": 0.10995850622406639,
+      "records": 5850,
+      "roc_auc": 0.6573118866372727,
+      "slice": "No vulnerable road user flag",
+      "threshold": 0.5
+    },
+    {
+      "confusion_matrix": [
+        [
+          390,
+          2709
+        ],
+        [
+          49,
+          1151
+        ]
+      ],
+      "f1": 0.4549407114624506,
+      "ksi_count": 1200,
+      "ksi_rate": 0.2791346824842987,
+      "pr_auc": 0.4084359733156864,
+      "precision": 0.29818652849740934,
+      "recall": 0.9591666666666666,
+      "records": 4299,
+      "roc_auc": 0.6423682370657201,
+      "slice": "Pedestrian involved",
+      "threshold": 0.5
+    },
+    {
+      "confusion_matrix": [
+        [
+          799,
+          3019
+        ],
+        [
+          128,
+          876
+        ]
+      ],
+      "f1": 0.35762400489895896,
+      "ksi_count": 1004,
+      "ksi_rate": 0.20821236001659063,
+      "pr_auc": 0.28952164003558734,
+      "precision": 0.22490372272143774,
+      "recall": 0.8725099601593626,
+      "records": 4822,
+      "roc_auc": 0.5999096855114899,
+      "slice": "Cyclist involved",
+      "threshold": 0.5
+    },
+    {
+      "confusion_matrix": [
+        [
+          2361,
+          1882
+        ],
+        [
+          201,
+          634
+        ]
+      ],
+      "f1": 0.37839450910176065,
+      "ksi_count": 835,
+      "ksi_rate": 0.16443481685703032,
+      "pr_auc": 0.3422477814623665,
+      "precision": 0.2519872813990461,
+      "recall": 0.7592814371257485,
+      "records": 5078,
+      "roc_auc": 0.729353736552349,
+      "slice": "Motorcyclist involved",
+      "threshold": 0.5
+    },
+    {
+      "confusion_matrix": [
+        [
+          411,
+          642
+        ],
+        [
+          50,
+          162
+        ]
+      ],
+      "f1": 0.3188976377952756,
+      "ksi_count": 212,
+      "ksi_rate": 0.16758893280632411,
+      "pr_auc": 0.23814518163625406,
+      "precision": 0.20149253731343283,
+      "recall": 0.7641509433962265,
+      "records": 1265,
+      "roc_auc": 0.6228744467738179,
+      "slice": "Child casualty involved",
+      "threshold": 0.5
+    },
+    {
+      "confusion_matrix": [
+        [
+          248,
+          712
+        ],
+        [
+          49,
+          399
+        ]
+      ],
+      "f1": 0.5118665811417575,
+      "ksi_count": 448,
+      "ksi_rate": 0.3181818181818182,
+      "pr_auc": 0.4823182086629163,
+      "precision": 0.35913591359135916,
+      "recall": 0.890625,
+      "records": 1408,
+      "roc_auc": 0.6850237165178572,
+      "slice": "Older casualty involved",
+      "threshold": 0.5
+    }
+  ],
+  "test_thresholds": [
+    {
+      "f1": 0.3393842940269558,
+      "precision": 0.20671271052950443,
+      "predicted_positive_rate": 0.7872370868507655,
+      "recall": 0.9475145792835323,
+      "threshold": 0.3
+    },
+    {
+      "f1": 0.3650489940279469,
+      "precision": 0.23069031217939323,
+      "predicted_positive_rate": 0.6508322602184385,
+      "recall": 0.8742016106637045,
+      "threshold": 0.4
+    },
+    {
+      "f1": 0.3772957238893894,
+      "precision": 0.2513852973771703,
+      "predicted_positive_rate": 0.516430581389803,
+      "recall": 0.7559011385726188,
+      "threshold": 0.5
+    },
+    {
+      "f1": 0.3739853300733496,
+      "precision": 0.2886473429951691,
+      "predicted_positive_rate": 0.31592502503934755,
+      "recall": 0.5309636212163288,
+      "threshold": 0.6
+    },
+    {
+      "f1": 0.2788543989024181,
+      "precision": 0.36457399103139015,
+      "predicted_positive_rate": 0.10635760957695427,
+      "recall": 0.22577061927242434,
+      "threshold": 0.7
+    }
+  ],
+  "validation": {
+    "confusion_matrix": [
+      [
+        10856,
+        8441
+      ],
+      [
+        843,
+        2755
+      ]
+    ],
+    "f1": 0.3724482898472354,
+    "pr_auc": 0.3166007446420731,
+    "precision": 0.24607002500893177,
+    "recall": 0.7657031684269039,
+    "roc_auc": 0.7241541432030709,
+    "threshold": 0.5
+  },
+  "validation_borough_slices": [
+    {
+      "borough": "Westminster",
+      "borough_code": "E09000033",
+      "confusion_matrix": [
+        [
+          344,
+          641
+        ],
+        [
+          38,
+          219
+        ]
+      ],
+      "f1": 0.39212175470008953,
+      "ksi_count": 257,
+      "ksi_rate": 0.2069243156199678,
+      "pr_auc": 0.32962835045424077,
+      "precision": 0.25465116279069766,
+      "recall": 0.8521400778210116,
+      "records": 1242,
+      "roc_auc": 0.6630429200655752,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Croydon",
+      "borough_code": "E09000008",
+      "confusion_matrix": [
+        [
+          510,
+          442
+        ],
+        [
+          29,
+          122
+        ]
+      ],
+      "f1": 0.3412587412587413,
+      "ksi_count": 151,
+      "ksi_rate": 0.13689936536718042,
+      "pr_auc": 0.28638113783648533,
+      "precision": 0.21631205673758866,
+      "recall": 0.8079470198675497,
+      "records": 1103,
+      "roc_auc": 0.7319619900940508,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Lambeth",
+      "borough_code": "E09000022",
+      "confusion_matrix": [
+        [
+          374,
+          489
+        ],
+        [
+          32,
+          149
+        ]
+      ],
+      "f1": 0.36385836385836384,
+      "ksi_count": 181,
+      "ksi_rate": 0.17337164750957854,
+      "pr_auc": 0.31745411563290094,
+      "precision": 0.2335423197492163,
+      "recall": 0.8232044198895028,
+      "records": 1044,
+      "roc_auc": 0.6927139683616832,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Wandsworth",
+      "borough_code": "E09000032",
+      "confusion_matrix": [
+        [
+          406,
+          489
+        ],
+        [
+          26,
+          120
+        ]
+      ],
+      "f1": 0.31788079470198677,
+      "ksi_count": 146,
+      "ksi_rate": 0.14024975984630164,
+      "pr_auc": 0.2866506440141662,
+      "precision": 0.19704433497536947,
+      "recall": 0.821917808219178,
+      "records": 1041,
+      "roc_auc": 0.7228208464069794,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Southwark",
+      "borough_code": "E09000028",
+      "confusion_matrix": [
+        [
+          367,
+          465
+        ],
+        [
+          37,
+          157
+        ]
+      ],
+      "f1": 0.38480392156862747,
+      "ksi_count": 194,
+      "ksi_rate": 0.18908382066276802,
+      "pr_auc": 0.32907305646315854,
+      "precision": 0.25241157556270094,
+      "recall": 0.8092783505154639,
+      "records": 1026,
+      "roc_auc": 0.6773022402854877,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Tower Hamlets",
+      "borough_code": "E09000030",
+      "confusion_matrix": [
+        [
+          438,
+          410
+        ],
+        [
+          37,
+          114
+        ]
+      ],
+      "f1": 0.3377777777777778,
+      "ksi_count": 151,
+      "ksi_rate": 0.15115115115115116,
+      "pr_auc": 0.28578821570482993,
+      "precision": 0.21755725190839695,
+      "recall": 0.7549668874172185,
+      "records": 999,
+      "roc_auc": 0.6882497188554293,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Enfield",
+      "borough_code": "E09000010",
+      "confusion_matrix": [
+        [
+          682,
+          197
+        ],
+        [
+          40,
+          54
+        ]
+      ],
+      "f1": 0.3130434782608696,
+      "ksi_count": 94,
+      "ksi_rate": 0.09660842754367935,
+      "pr_auc": 0.308499252556828,
+      "precision": 0.2151394422310757,
+      "recall": 0.574468085106383,
+      "records": 973,
+      "roc_auc": 0.7681238351124342,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Haringey",
+      "borough_code": "E09000014",
+      "confusion_matrix": [
+        [
+          639,
+          226
+        ],
+        [
+          36,
+          71
+        ]
+      ],
+      "f1": 0.35148514851485146,
+      "ksi_count": 107,
+      "ksi_rate": 0.11008230452674897,
+      "pr_auc": 0.3208242612429468,
+      "precision": 0.23905723905723905,
+      "recall": 0.6635514018691588,
+      "records": 972,
+      "roc_auc": 0.7710874615093728,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Brent",
+      "borough_code": "E09000005",
+      "confusion_matrix": [
+        [
+          612,
+          207
+        ],
+        [
+          34,
+          64
+        ]
+      ],
+      "f1": 0.34688346883468835,
+      "ksi_count": 98,
+      "ksi_rate": 0.10687022900763359,
+      "pr_auc": 0.2793704011007402,
+      "precision": 0.23616236162361623,
+      "recall": 0.6530612244897959,
+      "records": 917,
+      "roc_auc": 0.7658169494904189,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Ealing",
+      "borough_code": "E09000009",
+      "confusion_matrix": [
+        [
+          557,
+          197
+        ],
+        [
+          45,
+          71
+        ]
+      ],
+      "f1": 0.3697916666666667,
+      "ksi_count": 116,
+      "ksi_rate": 0.13333333333333333,
+      "pr_auc": 0.30694662576473947,
+      "precision": 0.26492537313432835,
+      "recall": 0.6120689655172413,
+      "records": 870,
+      "roc_auc": 0.7410363120826855,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Barnet",
+      "borough_code": "E09000003",
+      "confusion_matrix": [
+        [
+          469,
+          236
+        ],
+        [
+          30,
+          103
+        ]
+      ],
+      "f1": 0.4364406779661017,
+      "ksi_count": 133,
+      "ksi_rate": 0.15871121718377088,
+      "pr_auc": 0.3878078170637885,
+      "precision": 0.30383480825958703,
+      "recall": 0.7744360902255639,
+      "records": 838,
+      "roc_auc": 0.7673332266837306,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Newham",
+      "borough_code": "E09000025",
+      "confusion_matrix": [
+        [
+          410,
+          310
+        ],
+        [
+          20,
+          74
+        ]
+      ],
+      "f1": 0.30962343096234307,
+      "ksi_count": 94,
+      "ksi_rate": 0.11547911547911548,
+      "pr_auc": 0.24541644782951744,
+      "precision": 0.19270833333333334,
+      "recall": 0.7872340425531915,
+      "records": 814,
+      "roc_auc": 0.7130023640661939,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Lewisham",
+      "borough_code": "E09000023",
+      "confusion_matrix": [
+        [
+          375,
+          291
+        ],
+        [
+          25,
+          78
+        ]
+      ],
+      "f1": 0.3305084745762712,
+      "ksi_count": 103,
+      "ksi_rate": 0.13394018205461639,
+      "pr_auc": 0.26133227918817803,
+      "precision": 0.21138211382113822,
+      "recall": 0.7572815533980582,
+      "records": 769,
+      "roc_auc": 0.6907781567975743,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Hackney",
+      "borough_code": "E09000012",
+      "confusion_matrix": [
+        [
+          296,
+          347
+        ],
+        [
+          24,
+          101
+        ]
+      ],
+      "f1": 0.3525305410122164,
+      "ksi_count": 125,
+      "ksi_rate": 0.16276041666666666,
+      "pr_auc": 0.2934064276481084,
+      "precision": 0.22544642857142858,
+      "recall": 0.808,
+      "records": 768,
+      "roc_auc": 0.6998569206842924,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Camden",
+      "borough_code": "E09000007",
+      "confusion_matrix": [
+        [
+          323,
+          303
+        ],
+        [
+          28,
+          73
+        ]
+      ],
+      "f1": 0.3060796645702306,
+      "ksi_count": 101,
+      "ksi_rate": 0.13892709766162312,
+      "pr_auc": 0.3150420014098494,
+      "precision": 0.19414893617021275,
+      "recall": 0.7227722772277227,
+      "records": 727,
+      "roc_auc": 0.698494290323601,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Hounslow",
+      "borough_code": "E09000018",
+      "confusion_matrix": [
+        [
+          266,
+          274
+        ],
+        [
+          23,
+          105
+        ]
+      ],
+      "f1": 0.41420118343195267,
+      "ksi_count": 128,
+      "ksi_rate": 0.19161676646706588,
+      "pr_auc": 0.3631669499696565,
+      "precision": 0.2770448548812665,
+      "recall": 0.8203125,
+      "records": 668,
+      "roc_auc": 0.7187934027777778,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Kensington and Chelsea",
+      "borough_code": "E09000020",
+      "confusion_matrix": [
+        [
+          282,
+          233
+        ],
+        [
+          27,
+          98
+        ]
+      ],
+      "f1": 0.4298245614035088,
+      "ksi_count": 125,
+      "ksi_rate": 0.1953125,
+      "pr_auc": 0.3875039298788336,
+      "precision": 0.29607250755287007,
+      "recall": 0.784,
+      "records": 640,
+      "roc_auc": 0.7231067961165049,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Hillingdon",
+      "borough_code": "E09000017",
+      "confusion_matrix": [
+        [
+          316,
+          209
+        ],
+        [
+          23,
+          83
+        ]
+      ],
+      "f1": 0.41708542713567837,
+      "ksi_count": 106,
+      "ksi_rate": 0.16798732171156894,
+      "pr_auc": 0.3242444724963135,
+      "precision": 0.2842465753424658,
+      "recall": 0.7830188679245284,
+      "records": 631,
+      "roc_auc": 0.7398203054806829,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Redbridge",
+      "borough_code": "E09000026",
+      "confusion_matrix": [
+        [
+          391,
+          143
+        ],
+        [
+          23,
+          74
+        ]
+      ],
+      "f1": 0.4713375796178344,
+      "ksi_count": 97,
+      "ksi_rate": 0.1537242472266244,
+      "pr_auc": 0.544126637815998,
+      "precision": 0.34101382488479265,
+      "recall": 0.7628865979381443,
+      "records": 631,
+      "roc_auc": 0.8266728445113711,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Greenwich",
+      "borough_code": "E09000011",
+      "confusion_matrix": [
+        [
+          315,
+          179
+        ],
+        [
+          29,
+          79
+        ]
+      ],
+      "f1": 0.43169398907103823,
+      "ksi_count": 108,
+      "ksi_rate": 0.17940199335548174,
+      "pr_auc": 0.3877205197775882,
+      "precision": 0.3062015503875969,
+      "recall": 0.7314814814814815,
+      "records": 602,
+      "roc_auc": 0.7425213675213675,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Bromley",
+      "borough_code": "E09000006",
+      "confusion_matrix": [
+        [
+          267,
+          212
+        ],
+        [
+          29,
+          91
+        ]
+      ],
+      "f1": 0.4302600472813239,
+      "ksi_count": 120,
+      "ksi_rate": 0.2003338898163606,
+      "pr_auc": 0.3872352803126614,
+      "precision": 0.30033003300330036,
+      "recall": 0.7583333333333333,
+      "records": 599,
+      "roc_auc": 0.7066457898399443,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Hammersmith and Fulham",
+      "borough_code": "E09000013",
+      "confusion_matrix": [
+        [
+          241,
+          237
+        ],
+        [
+          30,
+          77
+        ]
+      ],
+      "f1": 0.3657957244655582,
+      "ksi_count": 107,
+      "ksi_rate": 0.1829059829059829,
+      "pr_auc": 0.37017444652271897,
+      "precision": 0.24522292993630573,
+      "recall": 0.719626168224299,
+      "records": 585,
+      "roc_auc": 0.687463340241661,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Islington",
+      "borough_code": "E09000019",
+      "confusion_matrix": [
+        [
+          259,
+          227
+        ],
+        [
+          27,
+          68
+        ]
+      ],
+      "f1": 0.3487179487179487,
+      "ksi_count": 95,
+      "ksi_rate": 0.16351118760757316,
+      "pr_auc": 0.27688113933227687,
+      "precision": 0.2305084745762712,
+      "recall": 0.7157894736842105,
+      "records": 581,
+      "roc_auc": 0.664782326185835,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Waltham Forest",
+      "borough_code": "E09000031",
+      "confusion_matrix": [
+        [
+          287,
+          157
+        ],
+        [
+          24,
+          37
+        ]
+      ],
+      "f1": 0.2901960784313726,
+      "ksi_count": 61,
+      "ksi_rate": 0.12079207920792079,
+      "pr_auc": 0.235443267506271,
+      "precision": 0.19072164948453607,
+      "recall": 0.6065573770491803,
+      "records": 505,
+      "roc_auc": 0.6981981981981982,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Havering",
+      "borough_code": "E09000016",
+      "confusion_matrix": [
+        [
+          258,
+          176
+        ],
+        [
+          16,
+          46
+        ]
+      ],
+      "f1": 0.323943661971831,
+      "ksi_count": 62,
+      "ksi_rate": 0.125,
+      "pr_auc": 0.2901932269103776,
+      "precision": 0.2072072072072072,
+      "recall": 0.7419354838709677,
+      "records": 496,
+      "roc_auc": 0.7484762895793072,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Barking and Dagenham",
+      "borough_code": "E09000002",
+      "confusion_matrix": [
+        [
+          265,
+          120
+        ],
+        [
+          19,
+          39
+        ]
+      ],
+      "f1": 0.35944700460829493,
+      "ksi_count": 58,
+      "ksi_rate": 0.1309255079006772,
+      "pr_auc": 0.3442841993512982,
+      "precision": 0.24528301886792453,
+      "recall": 0.6724137931034483,
+      "records": 443,
+      "roc_auc": 0.7678907299596955,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Merton",
+      "borough_code": "E09000024",
+      "confusion_matrix": [
+        [
+          161,
+          187
+        ],
+        [
+          19,
+          66
+        ]
+      ],
+      "f1": 0.3905325443786982,
+      "ksi_count": 85,
+      "ksi_rate": 0.19630484988452657,
+      "pr_auc": 0.3164357436341674,
+      "precision": 0.2608695652173913,
+      "recall": 0.7764705882352941,
+      "records": 433,
+      "roc_auc": 0.6643002028397567,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Harrow",
+      "borough_code": "E09000015",
+      "confusion_matrix": [
+        [
+          230,
+          117
+        ],
+        [
+          18,
+          38
+        ]
+      ],
+      "f1": 0.36018957345971564,
+      "ksi_count": 56,
+      "ksi_rate": 0.13895781637717122,
+      "pr_auc": 0.3068764339241628,
+      "precision": 0.24516129032258063,
+      "recall": 0.6785714285714286,
+      "records": 403,
+      "roc_auc": 0.724011939069576,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Bexley",
+      "borough_code": "E09000004",
+      "confusion_matrix": [
+        [
+          173,
+          161
+        ],
+        [
+          8,
+          54
+        ]
+      ],
+      "f1": 0.3898916967509025,
+      "ksi_count": 62,
+      "ksi_rate": 0.15656565656565657,
+      "pr_auc": 0.392866302251796,
+      "precision": 0.25116279069767444,
+      "recall": 0.8709677419354839,
+      "records": 396,
+      "roc_auc": 0.7648734788487541,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Richmond upon Thames",
+      "borough_code": "E09000027",
+      "confusion_matrix": [
+        [
+          71,
+          196
+        ],
+        [
+          14,
+          94
+        ]
+      ],
+      "f1": 0.4723618090452261,
+      "ksi_count": 108,
+      "ksi_rate": 0.288,
+      "pr_auc": 0.4306337888748074,
+      "precision": 0.32413793103448274,
+      "recall": 0.8703703703703703,
+      "records": 375,
+      "roc_auc": 0.6519281453738384,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Sutton",
+      "borough_code": "E09000029",
+      "confusion_matrix": [
+        [
+          154,
+          137
+        ],
+        [
+          20,
+          44
+        ]
+      ],
+      "f1": 0.35918367346938773,
+      "ksi_count": 64,
+      "ksi_rate": 0.18028169014084508,
+      "pr_auc": 0.28773809142520335,
+      "precision": 0.2430939226519337,
+      "recall": 0.6875,
+      "records": 355,
+      "roc_auc": 0.6610824742268041,
+      "threshold": 0.5
+    },
+    {
+      "borough": "Kingston upon Thames",
+      "borough_code": "E09000021",
+      "confusion_matrix": [
+        [
+          109,
+          105
+        ],
+        [
+          9,
+          52
+        ]
+      ],
+      "f1": 0.47706422018348627,
+      "ksi_count": 61,
+      "ksi_rate": 0.22181818181818183,
+      "pr_auc": 0.42226281382758313,
+      "precision": 0.33121019108280253,
+      "recall": 0.8524590163934426,
+      "records": 275,
+      "roc_auc": 0.7475103416577294,
+      "threshold": 0.5
+    },
+    {
+      "borough": "City of London",
+      "borough_code": "E09000001",
+      "confusion_matrix": [
+        [
+          9,
+          121
+        ],
+        [
+          4,
+          40
+        ]
+      ],
+      "f1": 0.3902439024390244,
+      "ksi_count": 44,
+      "ksi_rate": 0.25287356321839083,
+      "pr_auc": 0.286230233515277,
+      "precision": 0.2484472049689441,
+      "recall": 0.9090909090909091,
+      "records": 174,
+      "roc_auc": 0.4746503496503497,
+      "threshold": 0.5
+    }
+  ],
+  "validation_slices": [
+    {
+      "confusion_matrix": [
+        [
+          5098,
+          8231
+        ],
+        [
+          429,
+          2684
+        ]
+      ],
+      "f1": 0.382663244938694,
+      "ksi_count": 3113,
+      "ksi_rate": 0.18933219802943682,
+      "pr_auc": 0.3316959018928961,
+      "precision": 0.24590013742556116,
+      "recall": 0.8621908127208481,
+      "records": 16442,
+      "roc_auc": 0.6920922685674321,
+      "slice": "Any vulnerable road user involved",
+      "threshold": 0.5
+    },
+    {
+      "confusion_matrix": [
+        [
+          5758,
+          210
+        ],
+        [
+          414,
+          71
+        ]
+      ],
+      "f1": 0.185378590078329,
+      "ksi_count": 485,
+      "ksi_rate": 0.07515884084921742,
+      "pr_auc": 0.18023595180124174,
+      "precision": 0.2526690391459075,
+      "recall": 0.1463917525773196,
+      "records": 6453,
+      "roc_auc": 0.6789336944805284,
+      "slice": "No vulnerable road user flag",
+      "threshold": 0.5
+    },
+    {
+      "confusion_matrix": [
+        [
+          377,
+          2754
+        ],
+        [
+          53,
+          1208
+        ]
+      ],
+      "f1": 0.46256940455676815,
+      "ksi_count": 1261,
+      "ksi_rate": 0.28711293260473586,
+      "pr_auc": 0.4106004129211582,
+      "precision": 0.30489651691065117,
+      "recall": 0.9579698651863601,
+      "records": 4392,
+      "roc_auc": 0.6362430287693782,
+      "slice": "Pedestrian involved",
+      "threshold": 0.5
+    },
+    {
+      "confusion_matrix": [
+        [
+          833,
+          2965
+        ],
+        [
+          104,
+          850
+        ]
+      ],
+      "f1": 0.3564688613965192,
+      "ksi_count": 954,
+      "ksi_rate": 0.20075757575757575,
+      "pr_auc": 0.29250785828711073,
+      "precision": 0.22280471821756226,
+      "recall": 0.8909853249475891,
+      "records": 4752,
+      "roc_auc": 0.6109962983938364,
+      "slice": "Cyclist involved",
+      "threshold": 0.5
+    },
+    {
+      "confusion_matrix": [
+        [
+          3286,
+          2257
+        ],
+        [
+          191,
+          607
+        ]
+      ],
+      "f1": 0.3315128345166576,
+      "ksi_count": 798,
+      "ksi_rate": 0.12584765809809179,
+      "pr_auc": 0.2890493026481665,
+      "precision": 0.2119413407821229,
+      "recall": 0.7606516290726817,
+      "records": 6341,
+      "roc_auc": 0.7506263403412011,
+      "slice": "Motorcyclist involved",
+      "threshold": 0.5
+    },
+    {
+      "confusion_matrix": [
+        [
+          474,
+          679
+        ],
+        [
+          53,
+          202
+        ]
+      ],
+      "f1": 0.35563380281690143,
+      "ksi_count": 255,
+      "ksi_rate": 0.18110795454545456,
+      "pr_auc": 0.25911615816654765,
+      "precision": 0.2292849035187287,
+      "recall": 0.792156862745098,
+      "records": 1408,
+      "roc_auc": 0.6376477390609323,
+      "slice": "Child casualty involved",
+      "threshold": 0.5
+    },
+    {
+      "confusion_matrix": [
+        [
+          241,
+          692
+        ],
+        [
+          49,
+          409
+        ]
+      ],
+      "f1": 0.5246953175112251,
+      "ksi_count": 458,
+      "ksi_rate": 0.32925952552120774,
+      "pr_auc": 0.47491686974496283,
+      "precision": 0.371480472297911,
+      "recall": 0.8930131004366813,
+      "records": 1391,
+      "roc_auc": 0.6732098644088422,
+      "slice": "Older casualty involved",
+      "threshold": 0.5
+    }
+  ],
+  "validation_thresholds": [
+    {
+      "f1": 0.3221374769055853,
+      "precision": 0.19416366855119638,
+      "predicted_positive_rate": 0.7648394846036253,
+      "recall": 0.9449694274596998,
+      "threshold": 0.3
+    },
+    {
+      "f1": 0.35017809439002673,
+      "precision": 0.21892832289491998,
+      "predicted_positive_rate": 0.6276479580694475,
+      "recall": 0.8743746525847693,
+      "threshold": 0.4
+    },
+    {
+      "f1": 0.3724482898472354,
+      "precision": 0.24607002500893177,
+      "predicted_positive_rate": 0.4890150687923127,
+      "recall": 0.7657031684269039,
+      "threshold": 0.5
+    },
+    {
+      "f1": 0.3786253476360747,
+      "precision": 0.2945904173106646,
+      "predicted_positive_rate": 0.28259445293732255,
+      "recall": 0.5297387437465259,
+      "threshold": 0.6
+    },
+    {
+      "f1": 0.2834971546818417,
+      "precision": 0.37346660608814175,
+      "predicted_positive_rate": 0.09613452718934265,
+      "recall": 0.22846025569760978,
+      "threshold": 0.7
+    }
+  ]
+}

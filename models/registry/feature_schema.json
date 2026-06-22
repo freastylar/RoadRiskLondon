@@ -1,0 +1,79 @@
+{
+  "boolean_features": [
+    "weekend",
+    "has_pedestrian",
+    "has_cyclist",
+    "has_motorcyclist",
+    "has_child",
+    "has_elderly"
+  ],
+  "categorical_features": [
+    "day_of_week",
+    "road_type",
+    "junction_detail",
+    "junction_control",
+    "light_conditions",
+    "weather_conditions",
+    "road_surface_conditions",
+    "urban_or_rural_area",
+    "local_authority_ons_district",
+    "local_authority_district",
+    "local_authority_highway"
+  ],
+  "feature_columns": [
+    "accident_year",
+    "month",
+    "hour",
+    "number_of_vehicles",
+    "number_of_casualties",
+    "speed_limit",
+    "casualty_record_count",
+    "grid_lon",
+    "grid_lat",
+    "day_of_week",
+    "road_type",
+    "junction_detail",
+    "junction_control",
+    "light_conditions",
+    "weather_conditions",
+    "road_surface_conditions",
+    "urban_or_rural_area",
+    "local_authority_ons_district",
+    "local_authority_district",
+    "local_authority_highway",
+    "weekend",
+    "has_pedestrian",
+    "has_cyclist",
+    "has_motorcyclist",
+    "has_child",
+    "has_elderly"
+  ],
+  "forbidden_features": [
+    "accident_index",
+    "accident_reference",
+    "accident_severity",
+    "accident_severity_label",
+    "casualty_severity",
+    "collision_id",
+    "date",
+    "is_ksi",
+    "time"
+  ],
+  "id_column": "collision_id",
+  "numeric_features": [
+    "accident_year",
+    "month",
+    "hour",
+    "number_of_vehicles",
+    "number_of_casualties",
+    "speed_limit",
+    "casualty_record_count",
+    "grid_lon",
+    "grid_lat"
+  ],
+  "target": "is_ksi",
+  "year_range": [
+    2020,
+    2024
+  ]
+}
