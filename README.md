@@ -46,17 +46,20 @@ gitignored). You have two options:
 2. **Rebuild from source**: run the pipeline below to regenerate everything from
    the raw DfT downloads.
 
-The **Trip Risk by Road** page additionally needs road and traffic artifacts:
+The **Trip Risk by Road** page needs road and traffic artifacts, built from
+public DfT and OpenStreetMap data (all downloads are automated):
 
 ```bash
+python scripts/12_build_london_traffic.py                                # download DfT traffic (~1GB) + build London parquets
 python scripts/14_fetch_london_roads.py                                  # OSM road network (needs network)
-python scripts/13_build_hourly_traffic_profiles.py                       # hourly exposure profiles
 python scripts/15_build_road_risk.py --mode modeling --start-year 2015 --end-year 2024
 ```
 
-This reads the London-filtered traffic counts in `data/raw/traffic/` and writes
+`scripts/12` downloads the DfT raw counts and local-authority traffic, filters to
+the 33 London boroughs, and writes the traffic parquets (including the hourly
+exposure profiles) into `data/raw/traffic/`. `scripts/15` then writes
 `road_risk_table.parquet`, `road_risk_meta.json`, and `road_base_geometry.parquet`
-into `data/app/`.
+into `data/app/` for the app.
 
 ## MVP Pipeline
 
