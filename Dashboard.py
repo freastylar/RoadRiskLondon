@@ -46,8 +46,8 @@ st.divider()
 st.markdown(
     "**RoadRisk London** is an analytical suite designed to provide deep insights into road safety across Greater London. "
     "By moving beyond basic collision counts, the project integrates exposure metrics, environmental conditions, and geospatial "
-    "network data to build predictive risk models and identify systemic collision archetypes. The goal is to provide "
-    "decision-makers with actionable intelligence for infrastructure review and safety interventions."
+    "network data to identify systemic collision patterns and assess historical infrastructure risk. The goal is to provide "
+    "decision-makers with actionable intelligence for safety interventions."
 )
 
 st.divider()
@@ -86,7 +86,7 @@ with col1:
 
     with st.container():
         st.subheader("Collision Severity Factors")
-        st.markdown("Analysis of environmental and infrastructural conditions that act as severity multipliers.")
+        st.markdown("Analysis of environmental and infrastructural conditions that impact collision severity.")
         if st.button("Open Collision Severity Factors", use_container_width=True):
             st.switch_page("pages/4_Collision_Severity_Factors.py")
 
@@ -99,7 +99,7 @@ with col2:
 
     with st.container():
         st.subheader("Collision Typologies")
-        st.markdown("Systemic incident profiling utilizing unsupervised clustering to identify intervention targets.")
+        st.markdown("Systemic incident profiling to identify and cluster intervention targets.")
         if st.button("Open Collision Typologies", use_container_width=True):
             st.switch_page("pages/6_Collision_Typologies.py")
 
