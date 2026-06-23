@@ -7,13 +7,30 @@ sys.path.insert(0, str(Path(__file__).resolve().parent / "src"))
 
 import streamlit as st
 
-from roadrisk.ui.tables import assert_app_ready, load_json, load_parquet
+from roadrisk.ui.tables import assert_app_ready
 from roadrisk.ui.theme import configure_page, show_limitations
 from roadrisk.utils.validation import DataValidationError
 
-configure_page("RoadRisk London")
+configure_page("RoadRisk London - Home")
 
-st.title("RoadRisk London")
+st.markdown(
+    """
+    <style>
+    div[data-testid="stContainer"] {
+        background-color: #f4f8fb;
+        border-left: 6px solid #1f77b4;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        margin-bottom: 15px;
+    }
+    h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+        display: none !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 try:
     assert_app_ready()
@@ -21,60 +38,76 @@ except DataValidationError as exc:
     st.error(str(exc))
     st.stop()
 
-metrics = load_json("model_metrics.json")
-priority = load_parquet("priority_locations.parquet")
-trends = load_parquet("historical_trends_yearly.parquet")
+st.title("RoadRisk London")
+st.subheader("Data-Driven Road Safety Analytics")
 
-st.subheader("Current Model")
-col1, col2, col3 = st.columns(3)
-col1.metric("Model", metrics.get("model_name", "severity_model"))
-col2.metric("Test PR-AUC", round(metrics.get("test", {}).get("pr_auc", 0), 3))
-col3.metric("Priority Areas", len(priority))
+st.divider()
 
-st.subheader("Latest Trend Year")
-latest = trends.sort_values("accident_year").iloc[-1]
-col4, col5, col6 = st.columns(3)
-col4.metric("Year", int(latest["accident_year"]))
-col5.metric("Collisions", int(latest["total_collisions"]))
-col6.metric("KSI rate", f"{latest['ksi_rate']:.1%}")
-
-st.subheader("Highest Priority Grid Cells")
-st.caption(
-    "Priority combines modelled KSI severity risk, recent observed KSI concentration, "
-    "observed KSI rate, vulnerable-user share, and data confidence. It is a triage signal "
-    "for further review, not proof that a condition caused collisions."
+st.markdown(
+    "**RoadRisk London** is an analytical suite designed to provide deep insights into road safety across Greater London. "
+    "By moving beyond basic collision counts, the project integrates exposure metrics, environmental conditions, and geospatial "
+    "network data to build predictive risk models and identify systemic collision archetypes. The goal is to provide "
+    "decision-makers with actionable intelligence for infrastructure review and safety interventions."
 )
-priority_table = priority.head(20)[
-    [
-        "grid_id",
-        "priority_band",
-        "priority_score",
-        "priority_reason",
-        "audit_focus",
-        "record_count",
-        "recent_ksi_count",
-        "observed_ksi_rate",
-        "predicted_ksi_risk",
-        "vulnerable_user_share",
-        "data_confidence",
-    ]
-].copy()
-priority_table = priority_table.rename(
-    columns={
-        "grid_id": "Grid",
-        "priority_band": "Band",
-        "priority_score": "Priority",
-        "priority_reason": "Reason",
-        "audit_focus": "Suggested review",
-        "record_count": "Records",
-        "recent_ksi_count": "KSI",
-        "observed_ksi_rate": "Observed KSI rate",
-        "predicted_ksi_risk": "Modelled KSI risk",
-        "vulnerable_user_share": "Vulnerable-user share",
-        "data_confidence": "Data confidence",
-    }
-)
-for column in ["Priority", "Observed KSI rate", "Modelled KSI risk", "Vulnerable-user share", "Data confidence"]:
-    priority_table[column] = priority_table[column].map(lambda value: f"{value:.1%}")
-st.dataframe(priority_table, width="stretch", hide_index=True)
+
+st.divider()
+
+st.header("Underlying Data Sources")
+with st.container():
+    st.markdown(
+        "- **Reported Collisions:** Official Department for Transport STATS19 data covering reported personal-injury road collisions, vehicles, and casualties.\n"
+        "- **Traffic & Exposure:** Department for Transport raw traffic counts and Annual Average Daily Flow data used to construct hourly traffic profiles.\n"
+        "- **Road Networks:** High-resolution drivable road segment data fetched from OpenStreetMap, enriched with infrastructure attributes.\n"
+        "- **Administrative Boundaries:** Geographic perimeters of the 33 London Boroughs for regional performance tracking."
+    )
+
+st.header("Explore the Dashboard")
+
+col1, col2 = st.columns(2)
+
+with col1:
+    with st.container():
+        st.subheader("Safety Map")
+        st.markdown("Geographic exploration of historical collision volumes and severity densities.")
+        if st.button("Open Safety Map", use_container_width=True):
+            st.switch_page("pages/1_Safety_Map.py")
+        
+    with st.container():
+        st.subheader("Historical Trends")
+        st.markdown("Time-series analysis tracking safety performance and road-user specific casualties over time.")
+        if st.button("Open Historical Trends", use_container_width=True):
+            st.switch_page("pages/2_Historical_Trends.py")
+        
+    with st.container():
+        st.subheader("Borough Overview")
+        st.markdown("Administrative performance rankings and regional safety burden distributions.")
+        if st.button("Open Borough Overview", use_container_width=True):
+            st.switch_page("pages/3_Borough_Overview.py")
+
+    with st.container():
+        st.subheader("Collision Severity Factors")
+        st.markdown("Analysis of environmental and infrastructural conditions that act as severity multipliers.")
+        if st.button("Open Collision Severity Factors", use_container_width=True):
+            st.switch_page("pages/4_Collision_Severity_Factors.py")
+
+with col2:
+    with st.container():
+        st.subheader("Trip Risk")
+        st.markdown("Exposure-adjusted relative risk mapping for specific travel modes, times, and weather conditions.")
+        if st.button("Open Trip Risk", use_container_width=True):
+            st.switch_page("pages/5_Trip_Risk.py")
+
+    with st.container():
+        st.subheader("Collision Typologies")
+        st.markdown("Systemic incident profiling utilizing unsupervised clustering to identify intervention targets.")
+        if st.button("Open Collision Typologies", use_container_width=True):
+            st.switch_page("pages/6_Collision_Typologies.py")
+
+    with st.container():
+        st.subheader("Methodology")
+        st.markdown("Detailed documentation of the analytical approach, pipeline architecture, and data limitations.")
+        if st.button("Open Methodology", use_container_width=True):
+            st.switch_page("pages/7_Methodology.py")
+
+st.divider()
 show_limitations()
