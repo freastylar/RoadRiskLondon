@@ -46,6 +46,7 @@ for column, label, color, width in series:
     )
 fig.update_layout(
     xaxis_title="Year",
+    xaxis_dtick=1,  # Forces the x-axis to show only whole years
     yaxis_title="Collision count",
     yaxis_type="log" if use_log_scale else "linear",
     hovermode="x unified",
@@ -137,6 +138,7 @@ for group in selected_groups:
 
 group_fig.update_layout(
     xaxis_title="Year",
+    xaxis_dtick=1,
     yaxis_title=y_title,
     hovermode="x unified",
     legend_title_text="Group - severity",
