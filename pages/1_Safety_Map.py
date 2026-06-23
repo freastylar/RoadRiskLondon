@@ -23,7 +23,7 @@ except DataValidationError as exc:
 points = load_parquet("collision_points_sample.parquet")
 yearly_summary = load_parquet("safety_map_yearly.parquet")
 years = sorted(yearly_summary["accident_year"].dropna().astype(int).unique())
-selected_years = st.multiselect("Year", years, default=years[-3:] if len(years) >= 3 else years)
+selected_years = st.multiselect("Year", years, default=years[:] if len(years) >= 3 else years)
 filtered = points[points["accident_year"].isin(selected_years)] if selected_years else points
 summary = (
     yearly_summary[yearly_summary["accident_year"].isin(selected_years)]
