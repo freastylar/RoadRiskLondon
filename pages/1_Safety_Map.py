@@ -20,6 +20,8 @@ except DataValidationError as exc:
     st.error(str(exc))
     st.stop()
 
+st.header("Safety Map")
+
 points = load_parquet("collision_points_sample.parquet")
 yearly_summary = load_parquet("safety_map_yearly.parquet")
 years = sorted(yearly_summary["accident_year"].dropna().astype(int).unique())
